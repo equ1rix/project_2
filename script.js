@@ -29,15 +29,37 @@ const personalMovie = {
     genres: [],
     privat: false,
 };
-if (a || b === null) {
-  for (let i = 0; i < 2; i++) {
-  const a = prompt(`Один из последних просмотреных фильмов`, ``);
-  const b = prompt(`На сколько оцените его?`, ``);
-  personalMovie.movies[a] = b;
-}
-}
+
+
+ for (let i = 0; i < 2; i++) {
+    const a = prompt(`Один из последних просмотреных фильмов`, ``);
+    const b = prompt(`На сколько оцените его?`, ``);
+
+    if (a != '' && b != '' && a.length < 50 && a != null && b != null){
+      personalMovie.movies[a] = b;
+      console.log('ok')
+    } else {
+      i--
+      console.log('error')
+    }
+
+    
+  }
+ 
+ if (personalMovie.count < 10) {
+  alert(`Просмотрено довольно мало фильмов`)
+ } else if (personalMovie.count >= 10 && personalMovie.count <= 30) {
+  alert(`Вы классический зритель`)
+ } else  if (personalMovie.count > 30){
+  alert(`Вы киноман`)
+ } else {
+  alert(`Произошла ошибка`)
+ }
+ 
 
 console.log(personalMovie);
+
+
 
 // let result = "";
 // let a = '*';

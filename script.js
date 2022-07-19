@@ -237,163 +237,192 @@
 
 
 
-// let key;
-// const personalPlanPeter = {
-//    name: "Peter",
-//    age: "29",
-//    skills: {
-//        languages: ['ru', 'eng'],
-//        programmingLangs: {
-//          js: '20%',
-//          php: '10%'
-//        },
-//        exp: '1 month'
-//    },
-//    showAgeAndLangs() {
-//       let k;
-//       // for(key of personalPlanPeter.skills.languages){
-//       //    k += `${key} `
-//       // }
-//       let l = `Мне ${personalPlanPeter.age} и я владею языками: ${(personalPlanPeter.skills.languages).join(` `).toString().toUpperCase()}`
-//       return l;
-//    },
-// };
-
-// function showExperience(plan) {
-//    return `${plan.skills.exp}`;
-// }
-
-// function showProgrammingLangs(plan) { 
-//    let k =``;
-//    if (Object.keys(plan.skills.programmingLangs).length === 0) {
-//       return `\n`;
-//    } else {
-//       for(key in plan.skills.programmingLangs){
-//          k += `Язык ${key} изучен на ${plan[`skills`][`programmingLangs`][key]}`;
-//          k += `\n`;
-//       }    
-//       return k;  
-//    }
-// }
-
-// console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
-// console.log(showExperience(personalPlanPeter));
-// console.log(showProgrammingLangs(personalPlanPeter));
-
-
-// const family = ['Peter', 'Ann', 'Alex', 'Linda'];
-// function showFamily(arr) {
-//     if (arr.length === 0) {
-//       return `Семья пуста`;
-//     } else {
-//       return `Семья состоит из: ${(arr).join(' ')}`;
-//     }
-// }
-// console.log(showFamily(family))
-
-// const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
-// function standardizeStrings(arr) {
-//    let k = ``;
-//     for (let i = 0; i < arr.length; i++) {
-//       k += arr[i];
-//       k += `\n`;
-//     }
-//     return k.toLowerCase();
-// }
-// console.log(standardizeStrings(favoriteCities));
-
-
-
-
-
-
-let numberOfFilms;
-
-function start() {
-  numberOfFilms = prompt(`Сколько фильмов вы уже посмотрели?`, ``);
-
-  while (numberOfFilms == ''  || numberOfFilms == null ||  isNaN(numberOfFilms)) {
-    numberOfFilms = prompt(`Сколько фильмов вы уже посмотрели?`, ``);
-  }
-}
-
-start();
-
-const personalMovieDB = {
-    count: numberOfFilms,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: true,
-    rememberMyFilms: function() {
-      for(let i = 0; i < 2; i++) {
-         const a = prompt(`Один из последних просмотренных фильмов?`, ``),
-               b = prompt(`На сколько оцените его?`, ``);
-         if (a != null && b != null && a != `` && b != `` && a.length < 50) {
-            personalMovieDB.movies[a] = b;
-         } else { 
-            i--;
-         }
-      }
-    },
-    toggleVisibleMyDB: function () {
-       if (personalMovieDB.privat === false) {
-         personalMovieDB.privat = true;
-       } else {
-         personalMovieDB.privat = false;
-       }
-       return personalMovieDB;
-    },
+let key;
+const personalPlanPeter = {
+   name: "Peter",
+   age: "29",
+   skills: {
+       languages: ['ru', 'eng'],
+       programmingLangs: {
+         js: '20%',
+         php: '10%'
+       },
+       exp: '1 month'
+   },
+   showAgeAndLangs(personalPlanPeter) {
+      let k;
+      // for(key of personalPlanPeter.skills.languages){
+      //    k += `${key} `
+      // }
+      let l = `Мне ${personalPlanPeter.age} и я владею языками: ${(personalPlanPeter.skills.languages).join(` `).toString().toUpperCase()}`
+      return l;
+   },
 };
 
-
-
-personalMovieDB.rememberMyFilms(personalMovieDB);
-personalMovieDB.toggleVisibleMyDB (personalMovieDB);
- 
-function showMyDB () {
-  if (personalMovieDB.privat === false) {
-    return personalMovieDB;
-  }
+function showExperience(plan) {
+   return plan.skills.exp;
 }
 
-console.log(showMyDB());
-
-function detectPersonalLevel () {
-  if (personalMovieDB.count < 10) {
-  alert(`Просмотрено довольно мало фильмов`);
- } else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
-  alert(`Вы классический зритель`);
- } else  if (personalMovieDB.count > 30){
-  alert(`Вы киноман`);
- } else {
-  alert(`Произошла ошибка`);
- }
-}
-
-detectPersonalLevel ();
-
-
-
-function writeYourGenres () {
+function showProgrammingLangs(plan) { 
    let k =``;
-   let i
-   for (i = 0; i < 3; i++) {
-      
-      const l = prompt(`Ваш любимый жанр под номером ${i+1}`);
-      if (l != null && l != ``) { 
-         personalMovieDB.genres[i] = l;  
-      } else {
-         i--;
-      }
+   if (Object.keys(plan.skills.programmingLangs).length === 0) {
+      return `\n`;
+   } else {
+      for(key in plan.skills.programmingLangs){
+         k += `Язык ${key} изучен на ${plan.skills.programmingLangs[key]}`;
+         k += `\n`;
+      }    
+      return k;  
    }
+}
+
+console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
+console.log(showExperience(personalPlanPeter));
+console.log(showProgrammingLangs(personalPlanPeter));
+
+
+const family = ['Peter', 'Ann', 'Alex', 'Linda'];
+function showFamily(arr) {
+    if (arr.length === 0) {
+      return `Семья пуста`;
+    } else {
+      return `Семья состоит из: ${(arr).join(' ')}`;
+    }
+}
+console.log(showFamily(family))
+
+const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
+function standardizeStrings(arr) {
+   // let k = ``;
+   //  for (let i = 0; i < arr.length; i++) {
+   //    // k += arr[i];
+   //    // k += `\n`;
+   //  }
+   //  return k.toLowerCase();
+   favoriteCities.map(item => console.log(item.toLowerCase()))
+}
+console.log(standardizeStrings(favoriteCities));
+
+const students = [ 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi', 'Sam'];
+let array = [];
+function sortStudentsByGroups(arr) {
+   const myArray = [...arr].sort();
+   let list = [];
+   const iteration = Math.ceil(myArray.length / 3);
+   console.log('iteration', iteration)
+   let j = 0
+   for (let i = 0; i < iteration; i++) {
+      let piece = myArray.slice(j, j+3)
+      j+=3
+
+      if (i+1 === iteration && piece.length < 3) {
+         list[i] = `Оставшиеся студенты: ${piece.join(', ')}`;
+         continue;
+      } 
+
+      if (i+1 === iteration && piece.length === 3) {
+         list[i] = piece;
+         list[i+1] = 'Оставшиеся студенты: -';
+      }
+
+      list[i] = piece;
+
+    
+   }
+
+   console.log(list)
    
 }
-writeYourGenres();
+sortStudentsByGroups(students)  
 
-(personalMovieDB.genres).forEach(function(item, i,){   
-    console.log(`Люмый жанр №${i+1} - это ${item}`);  
-});
+
+
+
+
+
+// let numberOfFilms;
+
+// function start() {
+//   numberOfFilms = prompt(`Сколько фильмов вы уже посмотрели?`, ``);
+
+//   while (numberOfFilms == ''  || numberOfFilms == null ||  isNaN(numberOfFilms)) {
+//     numberOfFilms = prompt(`Сколько фильмов вы уже посмотрели?`, ``);
+//   }
+// }
+
+// start();
+
+// const personalMovieDB = {
+//     count: numberOfFilms,
+//     movies: {},
+//     actors: {},
+//     genres: [],
+//     privat: true,
+//     rememberMyFilms: function() {
+//       for(let i = 0; i < 2; i++) {
+//          const a = prompt(`Один из последних просмотренных фильмов?`, ``),
+//                b = prompt(`На сколько оцените его?`, ``);
+//          if (a != null && b != null && a != `` && b != `` && a.length < 50) {
+//             personalMovieDB.movies[a] = b;
+//          } else { 
+//             i--;
+//          }
+//       }
+//     },
+//     toggleVisibleMyDB: function () {
+//        if (personalMovieDB.privat === false) {
+//          personalMovieDB.privat = true;
+//        } else {
+//          personalMovieDB.privat = false;
+//        }
+//        return personalMovieDB;
+//     },
+// };
+
+
+
+// personalMovieDB.rememberMyFilms(personalMovieDB);
+// personalMovieDB.toggleVisibleMyDB (personalMovieDB);
+ 
+// function showMyDB () {
+//   if (personalMovieDB.privat === false) {
+//     return personalMovieDB;
+//   }
+// }
+
+// console.log(showMyDB());
+
+// function detectPersonalLevel () {
+//   if (personalMovieDB.count < 10) {
+//   alert(`Просмотрено довольно мало фильмов`);
+//  } else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
+//   alert(`Вы классический зритель`);
+//  } else  if (personalMovieDB.count > 30){
+//   alert(`Вы киноман`);
+//  } else {
+//   alert(`Произошла ошибка`);
+//  }
+// }
+
+// detectPersonalLevel ();
+
+
+
+// function writeYourGenres () {
+//    for (let i = 0; i < 3; i++) {
+//       const l = prompt(`Ваш любимый жанр под номером ${i+1}`);
+//       if (l != null && l != ``) { 
+//          personalMovieDB.genres[i] = l;  
+//       } else {
+//          i--;
+//       }
+//    }
+// }
+// writeYourGenres();
+
+// (personalMovieDB.genres).forEach(function(item, i,){   
+//     console.log(`Люмый жанр №${i+1} - это ${item}`);  
+// });
 
 
       

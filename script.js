@@ -19,46 +19,6 @@
 
 // prompt("hello", "");
 
-const numberOfFilms = prompt(`Сколько фильмов вы уже посмотрели?`, ``);
-
-
-const personalMovie = {
-    count: numberOfFilms,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: false,
-};
-
-
- for (let i = 0; i < 2; i++) {
-    const a = prompt(`Один из последних просмотреных фильмов`, ``);
-    const b = prompt(`На сколько оцените его?`, ``);
-
-    if (a != '' && b != '' && a.length < 50 && a != null && b != null){
-      personalMovie.movies[a] = b;
-      console.log('ok')
-    } else {
-      i--
-      console.log('error')
-    }
-
-    
-  }
- 
- if (personalMovie.count < 10) {
-  alert(`Просмотрено довольно мало фильмов`)
- } else if (personalMovie.count >= 10 && personalMovie.count <= 30) {
-  alert(`Вы классический зритель`)
- } else  if (personalMovie.count > 30){
-  alert(`Вы киноман`)
- } else {
-  alert(`Произошла ошибка`)
- }
- 
-
-console.log(personalMovie);
-
 
 
 // let result = "";
@@ -141,7 +101,7 @@ console.log(personalMovie);
 //   for (let j = 0; j < lines - i; j++) {
 //       result += " ";
 //   }
-//   for (let j = 0; j < 2 * i + 1; j++){
+//   for (let j = 0; j < 2 * i + 1; j+2){
 //     result += '*'
 //   };
 
@@ -149,3 +109,292 @@ console.log(personalMovie);
   
 //  }
 //  console.log(result)
+
+
+
+
+
+// function sayHello(name) {
+//   console.log(`Привет, ${name}!`);
+// }
+// sayHello(`Nazar`);
+
+
+// function returnNeighboringNumbers(num) {
+//   return [num - 1, num, num + 1]
+  
+// }
+//  console.log(returnNeighboringNumbers(3))
+
+
+//  // Вот тут полная хуйня и я скопировал с ответов этот код //
+//  function getMathResult(num, times) {
+//   if (typeof(times) !== 'number' || times <= 0) {
+//       return num;
+//   }
+
+//   let str = '';
+
+//   for (let i = 1; i <= times; i++) {
+//       if (i === times) {
+//           str += `${num * i}`;
+//           // Тут без черточек в конце
+//       } else {
+//           str += `${num * i}---`;
+//           // Это тоже самое, что и
+//           // str = str + num * i + "---"
+//       }
+//   }
+
+//   return str;
+// }
+
+// getMathResult(10, 5);
+
+// function calculateVolumeAndArea(num) { 
+//  if(typeof num === 'string' || num < 0 || num % 1 > 0 ){
+//     console.log(`error`)
+//  } else {
+//     const volume = num*num*num;
+//     const area = (num*num)*6;
+//     console.log(volume, area);
+//  }
+//  }
+// calculateVolumeAndArea(`9`);
+
+// function getCoupeNumber(a) {
+//    // 1. =0 || >36
+//    // 2. typeoff !== Number || a < 0 || a % 1 > 0
+//    //пишешь условия для 0 и > 35
+//    if (a == 0 || a > 36) {
+//       console.log(`Таких мест в вагоне не существует`);
+//    } else if (typeof a === 'string' || a < 0 || a % 1 > 0) {
+//       console.log(`Ошибка. Проверьте правильность введенного номера места`);
+//    } else {
+//    // Делишь вводное число на 4, целая часть это ответ
+//       console.log(Math.ceil(a/4));
+//    }
+// }
+
+// getCoupeNumber(77);
+   
+// function findMaxNumber(...rest) {
+//    if (rest.length < 4) return 0;
+
+//    for (let i = 0; i < rest.length; i++) {
+//       if (typeof rest[i] !== 'number') return 0;
+//    }
+
+//    const a = Math.max(...rest);
+
+//    if (isNaN(a)) {
+//       return 0;
+//    } else {
+//       return a;
+//    }
+
+
+// }  
+// console.log('findMaxNumber', findMaxNumber(6, 2, 4, 'ghj', 43, 6,22));
+
+
+
+   // if(typeof num1 !== `number` || typeof num2 !== `number` || typeof num3 !== `number` ||
+   //  typeof num4 !== `number` || num1 === `` || num2 === `` || num3 === `` || num4 === `` ) {
+
+   //    console.log(`0`);
+
+   // } else {
+   //    console.log (Math.max(num1, num2, num3, num4));
+   // }
+
+
+
+
+
+
+// function getTimeFromMinutes (minutes) {
+//    if(minutes < 0 || minutes > 600 || minutes % 1 > 0) {
+//       console.log(`Ошибка, проверьте данные`);
+//    } else {
+//       let b
+//       const hours = Math.floor(minutes/60);
+//       const minut = minutes % 60
+//       if (hours === 1){
+//          b = `час`;
+//       }
+//       if (hours > 1 && hours < 5){
+//          b = `часа`;
+//       }
+//       if (hours > 4 && hours < 11 || hours === 0){
+//          b = `часов`;
+//       }
+//       console.log( `Это ${hours} ${b} и ${minut} минут` )
+//    }
+// }
+
+// getTimeFromMinutes(58)
+
+
+
+// let key;
+// const personalPlanPeter = {
+//    name: "Peter",
+//    age: "29",
+//    skills: {
+//        languages: ['ru', 'eng'],
+//        programmingLangs: {
+//          js: '20%',
+//          php: '10%'
+//        },
+//        exp: '1 month'
+//    },
+//    showAgeAndLangs() {
+//       let k;
+//       // for(key of personalPlanPeter.skills.languages){
+//       //    k += `${key} `
+//       // }
+//       let l = `Мне ${personalPlanPeter.age} и я владею языками: ${(personalPlanPeter.skills.languages).join(` `).toString().toUpperCase()}`
+//       return l;
+//    },
+// };
+
+// function showExperience(plan) {
+//    return `${plan.skills.exp}`;
+// }
+
+// function showProgrammingLangs(plan) { 
+//    let k =``;
+//    if (Object.keys(plan.skills.programmingLangs).length === 0) {
+//       return `\n`;
+//    } else {
+//       for(key in plan.skills.programmingLangs){
+//          k += `Язык ${key} изучен на ${plan[`skills`][`programmingLangs`][key]}`;
+//          k += `\n`;
+//       }    
+//       return k;  
+//    }
+// }
+
+// console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
+// console.log(showExperience(personalPlanPeter));
+// console.log(showProgrammingLangs(personalPlanPeter));
+
+
+// const family = ['Peter', 'Ann', 'Alex', 'Linda'];
+// function showFamily(arr) {
+//     if (arr.length === 0) {
+//       return `Семья пуста`;
+//     } else {
+//       return `Семья состоит из: ${(arr).join(' ')}`;
+//     }
+// }
+// console.log(showFamily(family))
+
+// const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
+// function standardizeStrings(arr) {
+//    let k = ``;
+//     for (let i = 0; i < arr.length; i++) {
+//       k += arr[i];
+//       k += `\n`;
+//     }
+//     return k.toLowerCase();
+// }
+// console.log(standardizeStrings(favoriteCities));
+
+
+
+
+
+
+let numberOfFilms;
+
+function start() {
+  numberOfFilms = prompt(`Сколько фильмов вы уже посмотрели?`, ``);
+
+  while (numberOfFilms == ''  || numberOfFilms == null ||  isNaN(numberOfFilms)) {
+    numberOfFilms = prompt(`Сколько фильмов вы уже посмотрели?`, ``);
+  }
+}
+
+start();
+
+const personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: true,
+    rememberMyFilms: function() {
+      for(let i = 0; i < 2; i++) {
+         const a = prompt(`Один из последних просмотренных фильмов?`, ``),
+               b = prompt(`На сколько оцените его?`, ``);
+         if (a != null && b != null && a != `` && b != `` && a.length < 50) {
+            personalMovieDB.movies[a] = b;
+         } else { 
+            i--;
+         }
+      }
+    },
+    toggleVisibleMyDB: function () {
+       if (personalMovieDB.privat === false) {
+         personalMovieDB.privat = true;
+       } else {
+         personalMovieDB.privat = false;
+       }
+       return personalMovieDB;
+    },
+};
+
+
+
+personalMovieDB.rememberMyFilms(personalMovieDB);
+personalMovieDB.toggleVisibleMyDB (personalMovieDB);
+ 
+function showMyDB () {
+  if (personalMovieDB.privat === false) {
+    return personalMovieDB;
+  }
+}
+
+console.log(showMyDB());
+
+function detectPersonalLevel () {
+  if (personalMovieDB.count < 10) {
+  alert(`Просмотрено довольно мало фильмов`);
+ } else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
+  alert(`Вы классический зритель`);
+ } else  if (personalMovieDB.count > 30){
+  alert(`Вы киноман`);
+ } else {
+  alert(`Произошла ошибка`);
+ }
+}
+
+detectPersonalLevel ();
+
+
+
+function writeYourGenres () {
+   let k =``;
+   let i
+   for (i = 0; i < 3; i++) {
+      
+      const l = prompt(`Ваш любимый жанр под номером ${i+1}`);
+      if (l != null && l != ``) { 
+         personalMovieDB.genres[i] = l;  
+      } else {
+         i--;
+      }
+   }
+   
+}
+writeYourGenres();
+
+(personalMovieDB.genres).forEach(function(item, i,){   
+    console.log(`Люмый жанр №${i+1} - это ${item}`);  
+});
+
+
+      
+

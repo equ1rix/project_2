@@ -378,62 +378,62 @@
 // console.log(availableCurr([...baseCurrencies, ...additionalCurrencies], `USD`));
 
 
-const restorantData = {
-   menu: [
-       {
-           name: 'Salad Caesar',
-           price: '14$'
-       },
-       {
-           name: 'Pizza Diavola',
-           price: '9$'
-       },
-       {
-           name: 'Beefsteak',
-           price: '17$'
-       },
-       {
-           name: 'Napoleon',
-           price: '7$'
-       }
-   ],
-   waitors: [
-       {name: 'Alice', age: 22}, {name: 'John', age: 24}
-   ],
-   averageLunchPrice: '20$',
-   openNow: true
-};
-console.log((restorantData.menu[1].price))
-function isOpen(prop) {
-   let answer = '';
-   prop ? answer = 'Закрыто' : answer = 'Открыто';
+// const restorantData = {
+//    menu: [
+//        {
+//            name: 'Salad Caesar',
+//            price: '14$'
+//        },
+//        {
+//            name: 'Pizza Diavola',
+//            price: '9$'
+//        },
+//        {
+//            name: 'Beefsteak',
+//            price: '17$'
+//        },
+//        {
+//            name: 'Napoleon',
+//            price: '7$'
+//        }
+//    ],
+//    waitors: [
+//        {name: 'Alice', age: 22}, {name: 'John', age: 24}
+//    ],
+//    averageLunchPrice: '20$',
+//    openNow: true
+// };
+// console.log((restorantData.menu[1].price))
+// function isOpen(prop) {
+//    let answer = '';
+//    prop ? answer = 'Закрыто' : answer = 'Открыто';
 
-   return answer;
-}
+//    return answer;
+// }
 
-console.log(isOpen(restorantData.openNow));
+// console.log(isOpen(restorantData.openNow));
 
-function isAverageLunchPriceTrue(fDish, sDish, average) {
-   console.log(Number(fDish.price))
-   if (+((+fDish.price) + (+sDish.price)) < +average) {
-       return 'Цена ниже средней';
-   } else {
-       return 'Цена выше средней';
-   }
+// function isAverageLunchPriceTrue(fDish, sDish, average) {
+//    console.log(Number(fDish.price))
+//    if (+((+fDish.price) + (+sDish.price)) < +average) {
+//        return 'Цена ниже средней';
+//    } else {
+//        return 'Цена выше средней';
+//    }
    
-}
+// }
 
-console.log(isAverageLunchPriceTrue(restorantData.menu[3], restorantData.menu[1], restorantData.averageLunchPrice));
+// console.log(isAverageLunchPriceTrue(restorantData.menu[3], restorantData.menu[1], restorantData.averageLunchPrice));
 
 
-function transferWaitors(data) {
-   let copy = {...data};
+// function transferWaitors(data) {
+//    let copy = {...data};
 
-   copy.waitors[0] = {name: 'Mike', age: 32};
-   return copy;
-}
+//    copy.waitors[0] = {name: 'Mike', age: 32};
+//    return copy;
+// }
 
-console.log(transferWaitors(restorantData));
+// console.log(transferWaitors(restorantData));
 
 // function transferWaitors(data) {
 //    const copy = {...Object.assign({}, data)};
@@ -441,6 +441,111 @@ console.log(transferWaitors(restorantData));
 //    copy.waitors[0] = {name: 'Mike', age: 32};
 //    return copy;
 // }
+
+// function pow (x, y) {
+//     let i = Math.pow(x, y);
+//     return i
+// }
+// console.log(pow (2, 2));
+
+
+let students = {
+    js: [{
+        name: `John`,
+        progress: 100
+    }, {
+        name: `Ivan`,
+        progress: 60
+    }],
+
+    html: {
+        basic: [{
+            name: `Peter`,
+            progress: 20
+        }, {
+            name: `Ann`,
+            progress: 18
+        }],
+
+        pro: [{
+            name: `Sam`,
+            progress: 10
+        }]
+    }
+};
+
+function getTotalProgressByRecursion(data) {
+    if(Array.isArray(data)) {
+        let total = 0;
+        
+        for(let i = 0; i < data.length; i++) {
+            total += data[i].progress;
+        }
+
+        return [total, data.length];
+    } else {
+        let total = [0, 0];
+
+        for(let subData of Object.values(data)) {
+            const subDataArray = getTotalProgressByRecursion(subData);
+                total[0] += subDataArray[0];
+                total[1] += subDataArray[1];
+        }
+
+        return total;
+    }
+}
+const result = getTotalProgressByRecursion(students);
+console.log(result[0]/result[1]);
+
+
+
+// function getTotalProgressByIteration(data) {
+//     let total = 0,
+//         students = 0;
+
+//     for (let course of Object.values(data)) {
+//         if(Array.isArray(course)) {
+//             for (let i = 0; i < course.length; i++){
+//                 students++;
+//                 total += course[i].progress;
+//             }
+//         } else {
+//             for (let subCourse of Object.values(course)) {
+//                 for (let j = 0; j < subCourse.length; j++) {
+//                     students++;
+//                     total += subCourse[j].progress;
+//                 }
+//             }
+//         }
+//     }
+
+
+//     return total / students;
+// }
+// console.log(getTotalProgressByIteration(students));
+
+// function progress (array) {
+//     let total = 0,
+//         students = 0; 
+//     for(let i = 0; i < array.js.length; i++) {
+//         students++;
+//         total += array.js[i].progress;
+//     }
+//     for(let j = 0; j < array.html.basic.length; j++) {
+//         students++;
+//         total += array.html.basic[j].progress;
+//     }
+//     for(let k = 0; k < array.html.pro.length; k++){
+//         students++;
+//         total += array.html.pro[k].progress;
+//     }
+//     return total / students;
+// }
+// console.log(progress(students);
+
+
+
 
 
 
